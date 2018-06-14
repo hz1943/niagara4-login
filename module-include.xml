@@ -1,0 +1,8 @@
+<!-- Module Include File -->
+<!-- Types -->
+<types>
+  <!-- Type Example:<type name="MyClass" class="com.acme.BMyClass"/> -->
+  <!--auth_web4-->
+  <!--com.cat.fullLogin-->
+  <type class="com.cat.fullLogin.BFullLogin" name="FullLogin"/>
+</types>

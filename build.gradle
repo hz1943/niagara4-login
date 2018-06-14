@@ -1,0 +1,64 @@
+/*
+ * Copyright (c) 2014 Tridium, Inc. All Rights Reserved.
+ */
+
+apply from: "${System.getenv("niagara_home")}/etc/gradle/niagara.gradle"
+apply from: "${System.getenv("niagara_home")}/etc/gradle/eclipse.gradle"
+apply from: "${System.getenv("niagara_home")}/etc/gradle/idea.gradle"
+
+ext {
+  name = 'fullLogin'   // The module name
+  project.version = '1.0.0' // The vendor version
+  project.group = 'hz' // The vendor name
+  project.description = "fully custom the login page"
+  
+  niagaraHome = "D:/Niagara/Niagara-4.4.73.24"
+  if (niagaraHome == null) {
+    logger.error('niagara_home environment variable not set')
+  }
+}
+
+niagaraModule {
+  // The preferredSymbol is typically the only necessary value.
+  preferredSymbol = "fullLogin"
+  // The runtime profile indicates the minimum Java runtime support required for this module jar
+  runtimeProfile = "rt"
+  // The moduleName is registered with the Niagara runtime engine.
+  // In Niagara 4, it is possible for a module to have multiple jar files for separate runtimeProfile values.
+  moduleName = "fullLogin"
+
+  // Other available niagaraModule properties are below. Use them as needed.
+  // nre = 'true'
+  // installable = 'true'
+  // autoload = 'true'
+   installTo = 'modules'
+}
+
+dependencies {
+  // Compile dependencies are declared here.
+  // Only direct dependencies are required. Transitive dependencies will be resolved by Gradle.
+  compile "Tridium:nre:4.0.0"
+  compile "Tridium:baja:4.0.0"
+  compile "Tridium:web-rt:4.0.0"
+  
+  //compile "Tridium:test-wb:4.0.0"
+  compile fileTree(dir:'lib',include:['*.jar'])
+
+  // If you have test classes with additional dependencies, declare those here. 
+  //niagaraModuleTestCompile "Tridium:bajaui-wb:4.0.0"
+}
+
+ //Include additional files in module jar with the following configuration.
+jar {
+  from('src') {
+    include 'resources/*.css'
+    include 'resources/img/*.jpg'
+  }
+}
+
+// Include files in the test jar with the following configuration.
+//moduleTestJar {
+//  from('srcTest') {
+//    include 'test/bogs/*.bog'
+//  }
+//}

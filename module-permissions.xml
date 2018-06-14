@@ -1,0 +1,74 @@
+<!-- Module Include File -->
+
+<!-- Permissions -->
+
+<permissions>
+    <niagara-permission-groups type="all"> //Type can be "station" or "workbench"
+        <req-permission> // Required permission
+            <name>NETWORK_COMMUNICATION</name>
+            <purposeKey>This module needs it</purposeKey>
+            <parameters>
+                <parameter name="hosts" value="*"/>
+                <parameter name="ports" value="*"/>
+            </parameters>
+        </req-permission>
+		<req-permission>
+            <name>SYSTEM_PROPERTIES</name>
+            <purposeKey>This module needs it</purposeKey>
+            <parameters>
+                <parameter name="properties" value="*"/>
+                <parameter name="actions" value="read,write"/>
+            </parameters>
+        </req-permission>
+		<req-permission>
+            <name>GET_ENVIROMENT_VARIABLES</name>
+            <purposeKey>This module needs it</purposeKey>
+            <parameters>
+                <parameter name="variables" value="*"/>
+            </parameters>
+        </req-permission>
+        <req-permission>
+            <name>LOAD_LIBRARIES</name>
+            <purposeKey>This module needs it</purposeKey>
+            <parameters>
+                <parameter name="libraries" value="*"/>
+            </parameters>
+        </req-permission>
+		<req-permission>
+            <name>MANAGE_EXECUTION</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>LOGGING</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>MODIFY_IO_STREAMS</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>SHUTDOWN_HOOKS</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>UI</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>SET_SYSTEM_TIME</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>DIAGNOSTICS</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>UNAUTHENTICATED_ACCESS</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+		<req-permission>
+            <name>AUTHENTICATION</name>
+            <purposeKey>This module needs it</purposeKey>
+        </req-permission>
+    </niagara-permission-groups>
+</permissions>

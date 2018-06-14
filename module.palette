@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bajaObjectGraph version="1.0">
+<p m="b=baja" t="b:Folder">
+  <!-- p m="cl=componentLinks" t="cl:LinkCheckTest" n="LinkTester" /--> 
+  <p m="aw=authWeb" t="aw:CopyUser" n="CopyUser" />
+</p>
+</bajaObjectGraph>

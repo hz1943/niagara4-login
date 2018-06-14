@@ -1,0 +1,92 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei', 'sans-serif';
+    background: white;
+    overflow: hidden;
+}
+.login {
+    width:100%;height: 100%;
+    position: absolute;
+    color: white;
+    background: lightgray url(img/bg.jpg);
+}
+.theme-baoye .login {
+    color: #0C3F90;
+}
+.titles > * {
+    text-align: center;
+}
+.flash-logo {
+    background: #059FE7;
+    position: absolute;
+    top: 12%;
+    left: 35%;
+    right: 35%;
+    height: 20%;
+}
+.titles {
+    margin-top: 5em;
+    text-shadow: 0 0 5px gray;
+}
+.titles h1 {
+    letter-spacing: 0.5em;
+}
+.copyright {
+    position: absolute;
+    text-align: center;
+    bottom: 5em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-shadow: 0 0 5px black;
+}
+form {
+    position: absolute;
+    left: 40%;
+    right: 40%;
+    top: 36.5%;
+    bottom: 39.5%;
+    background: white;
+    box-shadow: 0 0 1px gray;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+form > * {
+    width: 80%;
+    height: 20%;
+}
+form div {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #B7CFE1;
+    text-align: center;
+    margin-bottom: 1em;
+}
+ form input,form button {
+    border: 0;
+    outline: 0;
+    color: white;
+    width: 100%;
+    height: 100%;
+ }
+form input {
+    background: transparent;
+    padding-left: 1em;
+    -ms-flex: auto;
+    flex: auto;
+}
+form button {
+    background: #395EBD;
+    cursor: pointer;
+}
+
