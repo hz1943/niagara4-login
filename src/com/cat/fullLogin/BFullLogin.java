@@ -20,7 +20,8 @@ public class BFullLogin extends BLoginTemplate {
 ////////////////////////////////////////////////////////////////
 // Type
 ////////////////////////////////////////////////////////////////
-  
+  // refer to Type.getInstance()
+  // must be before Sys.loadType()
   public static final BFullLogin INSTANCE = new BFullLogin();
   
   @Override
@@ -52,6 +53,52 @@ public class BFullLogin extends BLoginTemplate {
   public void write(HttpServletRequest req, HttpServletResponse rsp)
       throws IOException, ServletException {
     HtmlWriter out = new HtmlWriter(rsp.getWriter());
+    String username = (String)req.getSession().getAttribute("username");
+    if(username == null)
+      writePrelogin(out);
+    else
+      writeLogin(out, username);
+  }
+  
+  private void writePrelogin(HtmlWriter out) {
+    out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"");
+    out.println("\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
+    out.println("<html>");
+    
+    out.println("<head>");
+    out.println("  <title>Prelogin</title>");
+    out.println("  <meta http-equiv='Content-type' content='text/html;' />");
+    out.println("  <link rel='stylesheet' href='login/custom/log.css'/>");
+    out.println("  <script type='text/javascript' src='login/loginN4.js'></script>");
+    out.println("</head>");
+    
+    out.println("<body onload='checkFail()'>");
+    out.println("<div class='theme-baoye'>");
+    out.println("<div class='login'>");
+    
+    out.println("<div class='titles'>");
+    out.println("<h1>中用科技智慧物联网平台</h1>");
+    out.println("<h2>Smart Internet of Things Platform</h2>");
+    out.println("</div>");
+    
+    out.println("<form method='post' action=prelogin>");
+    out.println("<div class='login-group'>");
+    out.println("<input class='login-input' type='text' name='j_username' placeholder='用户名' autofocus/>");
+    out.println("</div>");
+    out.println("<div>");
+    out.println("<button id='login-submit' type='submit'>登录</button>");
+    out.println("</div>");
+    out.println("</form>");
+    out.println("<div  class='copyright'>Copyright © 2015~2018</div>");
+    
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</body>");
+    out.println("</html>");
+    out.close();
+  }
+  
+  private void writeLogin(HtmlWriter out, String username) {
     out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"");
     out.println("\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");      
 
@@ -77,7 +124,7 @@ public class BFullLogin extends BLoginTemplate {
     
     out.println("<form method='post' action='/j_security_check'>");
     out.println("<div>");
-    out.println("<input id='username' type='text' name='j_username' placeholder='用户名' />");
+    out.println("<input id='username' type='text' name='j_username' value='" + username + "' placeholder='用户名' />");
     out.println("</div>");
     out.println("<div>");
     out.println("<input id='password' type='password' name='j_password' placeholder='密码' />");
@@ -94,5 +141,4 @@ public class BFullLogin extends BLoginTemplate {
     out.println("</html>");
     out.close();
   }
-
 }
